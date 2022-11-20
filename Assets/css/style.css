@@ -1,12 +1,18 @@
-*,
-*::before,
-*::after {
+/* add re-usable variables */
+:root {
+  --bkg: #f9fbfd;
+  --box: hsl(0, 0%, 100%);
+  --txt: hsl(206, 17%, 28%);
+  --deco: #c0c7cf;
+  --btn: hsl(360, 91%, 36%);
+}
+
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-html,
-body,
-.wrapper {
+/* replace .wrapper with main */
+html, body, main {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -14,10 +20,11 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: var(--bkg);
 }
 
-.wrapper {
+/* replace .wrapper with main */
+main {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -27,58 +34,50 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--txt);
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 28px;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--box);
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--txt);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
 }
 
-.card-header::after {
+/* replaced .card-header with h2 */
+/* replaced h2::after and button::before with output::before, output::after */
+output::before, output::after {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: var(--deco);
   height: 2px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.card-body {
+/* replace .card-body with output */
+output {
   min-height: 100px;
 }
 
-.card-footer {
-  text-align: center;
-}
-
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-
-.btn {
+/* replace .btn with button */
+button {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--btn);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: var(--box);
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
@@ -88,9 +87,15 @@ header {
   cursor: pointer;
 }
 
+button::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
 button[disabled] {
   cursor: default;
-  background: #c0c7cf;
+  background: var(--deco);
 }
 
 .float-right {
@@ -112,14 +117,14 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px dashed var(--deco);
   border-radius: 6px;
   resize: none;
   overflow: hidden;
 }
 
 @media (max-width: 690px) {
-  .btn {
+  button {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
@@ -131,7 +136,7 @@ button[disabled] {
 }
 
 @media (max-width: 500px) {
-  .btn {
+  button {
     font-size: 0.8rem;
   }
 }
