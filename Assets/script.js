@@ -63,6 +63,8 @@ function lengthCriteria () {
   return passwordLength;
 };
 
+// define character list
+var charactersList = "";
 // determine the characters critera
 function charactersCriteria () {
   // define the four types of characters
@@ -70,8 +72,6 @@ function charactersCriteria () {
   var uppercaseCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
   var numericCharacters = ["0123456789"];
   var specialCharacters = ["!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
-  // define and clear any existing character list
-  var charactersList = "";
   // initialize series of confirmation to determine which characters to include
   // combine the respective array with the character list if it is accepted
   if (confirm("\nInclude lowercase characters?\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
@@ -86,7 +86,11 @@ function charactersCriteria () {
   if (confirm("\nInclude special characters? (i.e: !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
     charactersList = charactersList.concat(specialCharacters);
   };
-  // return the character list
+  // check that at least one character type is included and return the character list
+  if (charactersList.length === 0) {
+    alert("Error: Must select at lease one type of character.");
+    charactersCriteria();
+  };
   return charactersList;
 };
 
@@ -97,11 +101,6 @@ function generatePassword() {
   // run the functions to determine the length and characters of the password
   var passwordLength = lengthCriteria()
   var charactersList =  charactersCriteria()
-  // check that at least one character type is included
-  if (charactersList.length === 0) {
-    alert("Error: Must select at lease one type of character.");
-    charactersCriteria();
-  };
   // generate a unique series of characters based on the length and characters criteria
   for (var i = 0; i < passwordLength; i++) {
     var randomNumber = Math.floor(Math.random() * charactersList.length);
@@ -115,6 +114,8 @@ function generatePassword() {
 function writePassword() {
   // define the location to output the password
   var passwordText = document.querySelector("#password");
+  // clear any existing character list
+  charactersList="";
   // run the function to generate a unique password
   var password = generatePassword();
   // paste the password in the textarea

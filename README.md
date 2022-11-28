@@ -1,6 +1,6 @@
 # Module 03 Challenge - Unique Password Generator
 
->**Application Link:** [Unique Password Generator](https://fannychen623.github.io/Challenge-02-Fanny-Chen-Digital-Portfolio/)
+>**Application Link:** [Unique Password Generator](https://fannychen623.github.io/Challenge-03-Unique-Password-Generator/)
 >
 >**View:** [Description](#description) / [Application Details](#application-details) / [Application Sample Images](#application-sample-images) / [Responsive Layout Example](#responsive-layout)
 >
@@ -8,7 +8,7 @@
 >
 >![Unique Password Generator](/Assets/images/Unique%20Password%20Generator.png "Unique Password Generator")
 ## **DESCRIPTION**
-> Topic Assessed: **JavasScript**; **Alert, Confirm, Prompt Methods**, **Event Listeners and Functions**
+> Topic Assessed: **JavasScript** - **(Alert, Confirm, Prompt Methods)**, **(Event Listeners and Functions)**
 ### **My Task**
 *Unique Password Generator* enables users to generate random passwords based on criteria that they’ve selected.
 
@@ -86,6 +86,7 @@ THEN the password is either displayed in an alert or written to the page
 ### JavaScript Information
 * **Assignment Code and Event Listener**: Used to define the button on the application and initialize the writePassword() function upon click.
 * **function writePassword()**: Runs the function to generate the password and then paste it in the HTML output text area.
+  * Clear the characterList incase the function has already been ran previously.
   * Runs function generatePassword()
   * Paste the generated password into the output text area with the id password.
   * Initialize an alert with the generated password and details of the password length.
@@ -93,7 +94,6 @@ THEN the password is either displayed in an alert or written to the page
   * Clears any existing password incase the function has already been ran previously.
   * Run the function lengthCriteria() to determine the password length.
   * Run the function charactersCriteria() to determine what characters to include in the password.
-  * Check that at least one type of character is chosen, otherwise, output an error alert and run the charactersCritera() function again.
   * Use the returned password length and character list to generate a unique series of characters as the password.
     * **Referenced Code**: [Random Password Generator using Javascript](https://dev.to/code_mystery/random-password-generator-using-javascript-6a)
   * Return the generated unique password.
@@ -131,8 +131,8 @@ THEN the password is either displayed in an alert or written to the page
     * Clears any existing list incase the function has already been ran previously.
   * Initialize confirm methods to determine if each character type should be included in the password.
   * If a character type is included, combine the respective character array with the charactersList array.
-  * Return the charactersList array.
-    * The generatePassword() function will check if no character type has been selected and will run the function again.
+  * Check that at least one type of character is chosen, otherwise, output an error alert and run the function again.
+  * Return the charactersList.
 
 ## **APPLICATION SAMPLE IMAGES**
 ### Minimum Length Prompt
