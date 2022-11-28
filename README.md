@@ -127,8 +127,6 @@ THEN the password is either displayed in an alert or written to the page
   * Return the random password length.
 * **function charactersCriteria()**: Utilizes confirm method to determine the password character requirements.
   * Define the four different character types as arrays: lowercase, uppercase, numeric, and special characters.
-  * Define an empty characterslist array. 
-    * Clears any existing list incase the function has already been ran previously.
   * Initialize confirm methods to determine if each character type should be included in the password.
   * If a character type is included, combine the respective character array with the charactersList array.
   * Check that at least one type of character is chosen, otherwise, output an error alert and run the function again.
