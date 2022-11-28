@@ -34,7 +34,7 @@ function lengthCriteria () {
     } else if (max > 128) {
       alert("Error: Password must be less than 128 characters.");
       maxLength();
-    } else if (max <= 8) {
+    } else if (max < 8) {
       alert("Error: Maximum length can not be less than minimum length.");
       maxLength();
     };
@@ -78,7 +78,6 @@ function generatePassword() {
     alert("Error: Must select at lease one type of character.");
     charactersCriteria();
   };
-  console.log(charactersList)
   for (var i = 0; i < passwordLength; i++) {
     var randomNumber = Math.floor(Math.random() * charactersList.length);
     password += charactersList.substring(randomNumber, randomNumber +1);
@@ -93,5 +92,6 @@ function writePassword() {
   passwordText.value = password;
   alert("\nPassword: \n" + password + "\n \nLength: " + password.length + " characters")
 }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
