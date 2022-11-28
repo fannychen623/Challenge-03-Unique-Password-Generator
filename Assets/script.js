@@ -1,26 +1,30 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function lengthSelection () {
+function lengthCriteria () {
+  var minInputs = new Array();
+  var maxInputs = new Array();
   function minLength() {
     let min = (prompt("Please enter the minimum length of the password:", "8"));
+    minInputs.push(min);
     if (min === null) {
-      alert("Error: Must input a minimum length.")
-      maxLength();
+      alert("Error: Must input a minimum length.");
+      minLength();
     } else if (isNaN(min)) {
       alert("Error: Input must be numeric.");
       minLength();
     } else if (min < 8) {
-      alert("Password must have at least 8 characters.");
+      alert("Error: Password must have at least 8 characters.");
       minLength();
     } else if (min > 128) {
-      alert("Password can not be more than 128 characters.");
+      alert("Error: Password can not be more than 128 characters.");
       minLength();
     };
-    return min;
+    return minInputs[minInputs.length - 1];
   };
   function maxLength() {
     let max = (prompt("Please enter the maximum length of the password:","128"));
+    maxInputs.push(max);
     if (max === null) {
       alert("Error: Must input a maximum length.")
       maxLength();
@@ -28,13 +32,13 @@ function lengthSelection () {
       alert("Error: Input must be numeric.");
       maxLength();
     } else if (max > 128) {
-      alert("Password must be less than 128 characters.");
+      alert("Error: Password must be less than 128 characters.");
       maxLength();
     } else if (max <= 8) {
-      alert("Maximum length can not be less than minimum length.");
+      alert("Error: Maximum length can not be less than minimum length.");
       maxLength();
     };
-    return max;
+    return maxInputs[maxInputs.length - 1];
   };
   var min = minLength();
   var max = maxLength();
@@ -44,50 +48,50 @@ function lengthSelection () {
   return passwordLength;
 };
 
-function characterSelection () {
+function charactersCriteria () {
   var lowercaseCharacters = ["abcdefghijklmnopqrstuvwxyz"];
   var uppercaseCharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
   var numericCharacters = ["0123456789"];
   var specialCharacters = ["!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"];
-  var characterList = "";
-  if (confirm("Include lowercase characters?")) {
-    characterList = characterList.concat(lowercaseCharacters);
+  var charactersList = "";
+  if (confirm("\nInclude lowercase characters?\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
+    charactersList = charactersList.concat(lowercaseCharacters);
   };
-  if (confirm("Include uppercase characters?")) {
-    characterList = characterList.concat(uppercaseCharacters);
+  if (confirm("\nInclude uppercase characters?\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
+    charactersList = charactersList.concat(uppercaseCharacters);
   };
-  if (confirm("Include numeric characters?")) {
-    characterList = characterList.concat(numericCharacters);
+  if (confirm("\nInclude numeric characters?\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
+    charactersList = charactersList.concat(numericCharacters);
   };
-  if (confirm("Include special characters?")) {
-    characterList = characterList.concat(specialCharacters);
+  if (confirm("\nInclude special characters? (i.e: !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)\n\n'Cancel' for 'No', 'OK' for 'Yes'")) {
+    charactersList = charactersList.concat(specialCharacters);
   };
-  return characterList;
+  return charactersList;
 };
-
-// Write password to the #password input
-function writePassword() {
-  var passwordText = document.querySelector("#password");
-  passwordText.value = "";
-  var password = generatePassword();
-  passwordText.value = password;
-}
 
 // Write password to the #password input
 function generatePassword() {
   var password="";
-  var passwordLength = lengthSelection()
-  var characterList =  characterSelection()
-  if (characterList.length === 0) {
-    alert("Error: Must select at lease one type of character!");
-    characterSelection();
+  var passwordLength = lengthCriteria()
+  var charactersList =  charactersCriteria()
+  if (charactersList.length === 0) {
+    alert("Error: Must select at lease one type of character.");
+    charactersCriteria();
   };
+  console.log(charactersList)
   for (var i = 0; i < passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * characterList.length);
-    password += characterList.substring(randomNumber, randomNumber +1);
+    var randomNumber = Math.floor(Math.random() * charactersList.length);
+    password += charactersList.substring(randomNumber, randomNumber +1);
   }
   return password;
 }
 
+// Write password to the #password input
+function writePassword() {
+  var passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  passwordText.value = password;
+  alert("\nPassword: \n" + password + "\n \nLength: " + password.length + " characters")
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

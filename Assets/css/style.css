@@ -7,17 +7,6 @@
   --btn: hsl(360, 91%, 36%);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* replace .wrapper with main */
-html, body, main {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: sans-serif;
   background-color: var(--bkg);
@@ -40,6 +29,8 @@ header {
 
 h2 {
   font-size: 28px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 .card {
@@ -52,6 +43,7 @@ h2 {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
 }
 
 /* replaced .card-header with h2 */
@@ -69,6 +61,7 @@ output::before, output::after {
 /* replace .card-body with output */
 output {
   min-height: 100px;
+  user-select: all;
 }
 
 /* replace .btn with button */
@@ -81,27 +74,22 @@ button {
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  margin: 16px auto;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
-  position: relative;
-  left: 30%;
-}
-
-button[disabled] {
-  cursor: default;
-  background: var(--deco);
 }
 
 /* remove .float-right */
 
 #password {
+  font-family: monospace;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border: none;
   display: block;
+  user-select: all;
   width: 100%;
   padding-top: 15px;
   padding-left: 15px;
@@ -118,9 +106,12 @@ button[disabled] {
 }
 
 @media (max-width: 690px) {
+  h2 {
+    font-size: 24px;
+  }
+
   button {
     font-size: 1rem;
-    margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
 
@@ -130,7 +121,15 @@ button[disabled] {
 }
 
 @media (max-width: 500px) {
+  h2 {
+    font-size: 20px;
+  }
+
   button {
+    font-size: 0.8rem;
+  }
+
+  #password {
     font-size: 0.8rem;
   }
 }
