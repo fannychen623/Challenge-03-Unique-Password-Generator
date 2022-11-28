@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <!-- link local assets and define the title -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <!-- add a reset css file -->
     <link rel="stylesheet" href="./Assets/css/reset.css" />
     <link rel="stylesheet" href="./Assets/css/style.css" />
   </head>
 
   <body>
-    <!-- div to 'main' element, remove 'wrapper' class -->
+    <!-- header including the title of the page -->
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <!-- main section of the page -->
     <main>
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <!-- replace div with section -->
+      <!-- password generator section -->
       <section class="card">
-        <!-- remove div and class -->
         <h2>Generate a Password</h2>
-        <!-- div to 'output' element, remove 'card-body' class -->
+        <!-- textarea where the generated password will output -->
         <output>
           <textarea
             readonly
@@ -30,12 +30,12 @@
             aria-label="Generated Password"
           ></textarea>
         </output>
-        <!-- remove div and class -->
-        <!-- remove class 'btn' -->
+        <!-- button used to generate the password -->
         <button id="generate" >Generate Password</button>
       </section>
     </main>
 
+    <!-- link the JavaScript file that is used to generate and output the unique password -->
     <script src="./Assets/script.js"></script>
   </body>
   

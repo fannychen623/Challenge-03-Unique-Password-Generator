@@ -1,4 +1,4 @@
-/* add re-usable variables */
+/* defined variables */
 :root {
   --bkg: #f9fbfd;
   --box: hsl(0, 0%, 100%);
@@ -7,32 +7,33 @@
   --btn: hsl(360, 91%, 36%);
 }
 
+/* page background and default font */
 body {
   font-family: sans-serif;
   background-color: var(--bkg);
 }
 
-/* replace .wrapper with main */
-main {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
+/* includes the h1 element */
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
+  padding: 25px;
   color: var(--txt);
   font-size: 34px;
 }
 
+/* main section of the page */
+main {
+  padding: 15px;
+}
+
+/* Generate a Password subtitle */
 h2 {
   font-size: 28px;
   padding-bottom: 10px;
   text-align: left;
 }
 
+/* card class */
 .card {
   background-color: var(--box);
   border-radius: 5px;
@@ -46,8 +47,7 @@ h2 {
   text-align: center;
 }
 
-/* replaced .card-header with h2 */
-/* replaced h2::after and button::before with output::before, output::after */
+/* decorative line outside the output box area */
 output::before, output::after {
   content: " ";
   display: block;
@@ -58,13 +58,12 @@ output::before, output::after {
   margin-bottom: 10px;
 }
 
-/* replace .card-body with output */
+/* output area */
 output {
   min-height: 100px;
-  user-select: all;
 }
 
-/* replace .btn with button */
+/* button style */
 button {
   border: none;
   background-color: var(--btn);
@@ -80,8 +79,7 @@ button {
   cursor: pointer;
 }
 
-/* remove .float-right */
-
+/* password style inside the output box */
 #password {
   font-family: monospace;
   -webkit-appearance: none;
@@ -105,7 +103,12 @@ button {
   overflow: hidden;
 }
 
+/* responsive layouts */
 @media (max-width: 690px) {
+  header {
+    font-size: 30px;
+  }
+
   h2 {
     font-size: 24px;
   }
@@ -121,6 +124,10 @@ button {
 }
 
 @media (max-width: 500px) {
+  header {
+    font-size: 28px;
+  }
+
   h2 {
     font-size: 20px;
   }

@@ -22,9 +22,6 @@
 >
 > Include restrictive criterias to prevent invalid inputs.
 >
-> **Note**: Only includes projects completed in this class. 
->Last updated note included in the footer section.
-> Currently do not have any personal projects that are activly deployed on the web.
 ## User Story
 ```
 AS AN employee with access to sensitive data
