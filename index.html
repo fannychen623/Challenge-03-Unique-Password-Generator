@@ -6,23 +6,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./Assets/css/reset.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
   </head>
 
   <body>
     <!-- header including the title of the page -->
     <header>
-      <h1>Code Quiz</h1>
+      <h1>Password Generator</h1>
     </header>
     <!-- main section of the page -->
     <main>
+      <!-- password generator section -->
+      <section class="card">
+        <h2>Generate a Password</h2>
+        <!-- textarea where the generated password will output -->
+        <output>
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </output>
+        <!-- button used to generate the password -->
+        <button id="generate" >Generate Password</button>
       </section>
     </main>
 
     <!-- link the JavaScript file that is used to generate and output the unique password -->
-    <script src="./assets/script.js"></script>
+    <script src="./Assets/script.js"></script>
   </body>
   
 </html>
